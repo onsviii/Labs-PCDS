@@ -24,7 +24,7 @@ public class CrewController {
     }
 
     @DeleteMapping("/{memberId}")
-    public ResponseEntity<Void> remove(@PathVariable Long flightId, @PathVariable Long memberId) {
+    public ResponseEntity<Void> remove(@PathVariable("flightId") Long flightId, @PathVariable Long memberId) {
         if (crewService.remove(flightId, memberId)) return ResponseEntity.ok().build();
         return ResponseEntity.notFound().build();
     }
