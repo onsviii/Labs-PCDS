@@ -25,7 +25,7 @@ public class BookController {
         return bookService.addBook(book);
     }
 
-    @PutMapping("/id={id}")
+    @PutMapping("/{id}")
     public ResponseEntity<String> updateBook(@PathVariable("id") int id, @RequestBody Book book) {
         boolean updated = bookService.updateBook(id, book);
         if (updated) {
@@ -35,7 +35,7 @@ public class BookController {
         }
     }
 
-    @DeleteMapping("/id={id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteBook(@PathVariable("id") int id) {
         boolean removed = bookService.deleteBook(id);
         return removed ? ResponseEntity.ok("Book deleted") : ResponseEntity.notFound().build();
